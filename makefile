@@ -27,3 +27,13 @@ main: $(ENTRY_POINT)
 
 run: $(OUT_DIR)/$(LAUNCHER_NAME).exe
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
+
+
+
+
+
+
+
+clean:
+	cd $(OUT_DIR)
+	rm -f Gerl.exe
