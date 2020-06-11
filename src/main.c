@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <Core/GerlCore.h>
+#include <Logger/GerlLogger.h>
 
 int main(){
 	if(!glfwInit()) printf("Failed to init glfw");
@@ -18,18 +19,23 @@ int main(){
         printf("Something went wrong!\n");
 	}
 
-	struct GerlCore core;
-	core.number = 4;
 	float time = glfwGetTime();
 	float elapsed = glfwGetTime() - time;
 	printf("%f\n", elapsed);
-	while( elapsed <= 3) {
+	while(!glfwWindowShouldClose(window)) {
 		elapsed = glfwGetTime() - time;
-		printf("%f\n", elapsed);
+		//printf("\033[1;31m %f\n", elapsed);
+		GERL_LOG("Hello\n");
+		GERL_DEBUG("Hello\n");
+		GERL_WARN("Hello\n");
+		GERL_ERROR("Hello\n");
+		GERL_FATAL("Hello\n");
 		glClearColor(0.2, 0.1, 0.2, 1.0);
 		glfwPollEvents();
 	}
 	
+	printf("\033[0m \n"); //reset logger
+
     return 4;
 }
 
