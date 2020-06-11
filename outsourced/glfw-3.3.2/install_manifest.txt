@@ -1,0 +1,8 @@
+C:MinGWmingw32/include/GLFW/glfw3.h
+C:MinGWmingw32/include/GLFW/glfw3native.h
+C:MinGWmingw32/lib/cmake/glfw3/glfw3Config.cmake
+C:MinGWmingw32/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+C:MinGWmingw32/lib/cmake/glfw3/glfw3Targets.cmake
+C:MinGWmingw32/lib/cmake/glfw3/glfw3Targets-noconfig.cmake
+C:MinGWmingw32/lib/pkgconfig/glfw3.pc
+C:MinGWmingw32/lib/libglfw3.a

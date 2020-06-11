@@ -1,0 +1,81 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe cmTC_eb52e/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_eb52e.dir\build.make CMakeFiles/cmTC_eb52e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eb52e.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_eb52e.dir\CheckIncludeFile.c.obj   -c C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:21: fatal error: pthread.h: No such file or directory
+ #include <pthread.h>
+                     ^
+compilation terminated.
+CMakeFiles\cmTC_eb52e.dir\build.make:84: recipe for target 'CMakeFiles/cmTC_eb52e.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_eb52e.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_eb52e/fast' failed
+mingw32-make.exe: *** [cmTC_eb52e/fast] Error 2
+
+
+
+Determining if the include file dinput.h exists failed with the following output:
+Change Dir: C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe cmTC_5e5f6/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_5e5f6.dir\build.make CMakeFiles/cmTC_5e5f6.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5e5f6.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_5e5f6.dir\CheckIncludeFile.c.obj   -c C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: dinput.h: No such file or directory
+ #include <dinput.h>
+                    ^
+compilation terminated.
+CMakeFiles\cmTC_5e5f6.dir\build.make:84: recipe for target 'CMakeFiles/cmTC_5e5f6.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_5e5f6.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_5e5f6/fast' failed
+mingw32-make.exe: *** [cmTC_5e5f6/fast] Error 2
+
+
+
+Determining if the include file xinput.h exists failed with the following output:
+Change Dir: C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe cmTC_742cc/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_742cc.dir\build.make CMakeFiles/cmTC_742cc.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_742cc.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_742cc.dir\CheckIncludeFile.c.obj   -c C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: xinput.h: No such file or directory
+ #include <xinput.h>
+                    ^
+compilation terminated.
+CMakeFiles\cmTC_742cc.dir\build.make:84: recipe for target 'CMakeFiles/cmTC_742cc.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_742cc.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_742cc/fast' failed
+mingw32-make.exe: *** [cmTC_742cc/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/MinGW/bin/mingw32-make.exe cmTC_424ae/fast && C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\cmTC_424ae.dir\build.make CMakeFiles/cmTC_424ae.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_424ae.dir/src.c.obj
+C:\MinGW\bin\gcc.exe   -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va   -o CMakeFiles\cmTC_424ae.dir\src.c.obj   -c C:\Users\User\Desktop\Gerl\outsourced\glfw-3.3.2\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_424ae.exe
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_424ae.dir\link.txt --verbose=1
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_424ae.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_424ae.dir/objects.a @CMakeFiles\cmTC_424ae.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va    -Wl,--whole-archive CMakeFiles\cmTC_424ae.dir/objects.a -Wl,--no-whole-archive  -o cmTC_424ae.exe -Wl,--out-implib,libcmTC_424ae.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_424ae.dir\linklibs.rsp
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: unrecognized option '--high-entropy-va'
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: use the --help option for usage information
+collect2.exe: error: ld returned 1 exit status
+CMakeFiles\cmTC_424ae.dir\build.make:107: recipe for target 'cmTC_424ae.exe' failed
+mingw32-make.exe[1]: *** [cmTC_424ae.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/User/Desktop/Gerl/outsourced/glfw-3.3.2/CMakeFiles/CMakeTmp'
+Makefile:140: recipe for target 'cmTC_424ae/fast' failed
+mingw32-make.exe: *** [cmTC_424ae/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
