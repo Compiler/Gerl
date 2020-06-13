@@ -16,20 +16,21 @@ GLFW_LIB = $(GLFW_ROOT)lib
 GLFW_SRC = $(GLFW_ROOT)../src
 
 
-INC=-I src/ -I $(GLAD_INC) -I $(GLFW_INC)
+INC=-I $(SRC_DIR)/ -I $(GLAD_INC) -I $(GLFW_INC)
 LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3 -lglu32 -lopengl32 -lgdi32
 
 all: main
 
-main: $(ENTRY_POINT)
-	$(CXX) $(CXXFLAGS) $(LIBS) $(INC) -o $(OUT_DIR)/$(LAUNCHER_NAME) $(ENTRY_POINT) $(GLAD_SRC)/glad.c $(LINKS)
+main: $(ENTRY_POINT) textloader.o
+	$(CXX) $(CXXFLAGS) $(LIBS) $(INC) -o $(OUT_DIR)/$(LAUNCHER_NAME) $(OUT_DIR)/TextLoader.o $(ENTRY_POINT) $(GLAD_SRC)/glad.c $(LINKS)
 
 run: $(OUT_DIR)/$(LAUNCHER_NAME).exe
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 
-
+textloader.o: $(SRC_DIR)/Assets/TextLoader.c
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Assets/TextLoader.c 
 
 
 
