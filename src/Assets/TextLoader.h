@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define GERL_INTERNAL "src/Resources"
-#define GERL_INTERNAL_SHADERS GERL_INTERNAL "/Shaders/"
+#define GERL_INTERNAL(x) "src/Resources" x
+#define GERL_INTERNAL_SHADERS(x) GERL_INTERNAL() "/Shaders/" x
+
 char* getTextContents(const char fileName[]);

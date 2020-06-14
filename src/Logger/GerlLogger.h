@@ -21,10 +21,3 @@
 #define GERL_DEBUG(...) printf(GRN "GerlDebug:\t"); printf(__VA_ARGS__ RESET);
 #define GERL_LOG(...) printf(BLU "GerlLog:\t"); printf(__VA_ARGS__ RESET);
 
-
-void yellow();
-void bold();
-void reset();
-struct GerlLogger{
-
-};
