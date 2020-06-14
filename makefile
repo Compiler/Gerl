@@ -1,5 +1,5 @@
 CXX = gcc
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall -w -g
 
 OUT_DIR = bin
 LAUNCHER_NAME = Gerl
