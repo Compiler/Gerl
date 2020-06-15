@@ -100,18 +100,21 @@ int main(){
 	}
 	glViewport(0, 0, 640, 480);
 
-	float time = glfwGetTime();
-	float elapsed = glfwGetTime() - time;
+	
 	int index = 0;
 
-	initShader(GERL_INTERNAL_SHADERS("pass.vert"), GERL_INTERNAL_SHADERS("pass.frag"));
+	initShader(GERL_INTERNAL_SHADERS("pass.vert"), GERL_INTERNAL_SHADERS("RayMarching.frag"));
 	glUseProgram(shaderProgram);
 
 	float a = 0.75f;
-	float vertices[7 * 3] = {
-		-a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f,
-		-a,  a, 0.0f,	 1.0f, 1.0f, 1.0f, 1.0f,
-		 a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f };
+	float vertices[7 * 6] = {
+		-a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom left
+		-a,  a, 0.0f,	1.0f, 1.0f, 1.0f, 1.0f, // top left
+		 a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom right
+
+		 a,  a, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f, //top right
+		-a,  a, 0.0f,	0.0f, 1.0f, 1.0f, 1.0f,
+		 a, -a, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f	 };
 	
 	unsigned int bufferID, arrayID;
 	glGenVertexArrays(1, &arrayID);
@@ -119,7 +122,6 @@ int main(){
 	
 	glGenBuffers(1, &bufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferID);
-	printf("%d, %d", sizeof(vertices), sizeof(float) * 18);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 
@@ -129,14 +131,30 @@ int main(){
 	glEnableVertexAttribArray(1);
 	int el = 0;
 	//!glfwWindowShouldClose(window)
+	int frames = 0;
+	int prevFrames = 0;
+	double startFrameTime = glfwGetTime();
+	double lastFrameTime = glfwGetTime();
+	double deltaTime = lastFrameTime - startFrameTime;
+	double elapsedTime = deltaTime;
 	while(!glfwWindowShouldClose(window)) {
-		elapsed = glfwGetTime() - time;
+		startFrameTime = glfwGetTime();
+		deltaTime = startFrameTime - lastFrameTime;
+		lastFrameTime = startFrameTime;
+		elapsedTime += deltaTime;
+		if(elapsedTime >= 1.0){
+			GERL_DEBUG("\t\tFPS: %d\t\tms: %f\n", frames, deltaTime, );
+			elapsedTime = 0;
+			frames = 0;
+		}
+		
 		glClearColor(0.2, 0.1, 0.2, 1.0);
 		glUseProgram(shaderProgram);
 		glBindVertexArray(arrayID);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 		glfwPollEvents();
 		glfwSwapBuffers(window);
+		frames++;
 	}
 	
 	GERL_LOG("Finished");
