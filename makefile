@@ -32,6 +32,9 @@ run: $(OUT_DIR)/$(LAUNCHER_NAME).exe
 textloader.o: $(SRC_DIR)/Assets/TextLoader.c
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Assets/TextLoader.c -o $(OUT_DIR)/TextLoader.o
 
+vec3.o: $(SRC_DIR)/Math/Vec3.c
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Math/Vec3.c -o $(OUT_DIR)/vec3.o
+
 
 
 
