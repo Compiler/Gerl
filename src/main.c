@@ -82,7 +82,7 @@ int main(){
 
 	GERL_LOG("a = (%f, %f, %f) \t b = (%f, %f, %f)\n", a.x, a.y, a.z, b.x, b.y, b.z,);
 
-	mulValTo(&a, 4);
+	vec3_mulValTo(&a, 4);
 	GERL_LOG("a = (%f, %f, %f) \t b = (%f, %f, %f)\n", a.x, a.y, a.z, b.x, b.y, b.z,);
 
 	//char* vert = getTextContents(GERL_INTERNAL_SHADERS("pass.vert"));
