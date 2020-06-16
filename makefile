@@ -35,6 +35,9 @@ textloader.o: $(SRC_DIR)/Assets/TextLoader.c
 vec3.o: $(SRC_DIR)/Math/Vec3.c
 	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Math/Vec3.c -o $(OUT_DIR)/vec3.o
 
+ray.o: $(SRC_DIR)/Math/Ray.c
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/Math/Ray.c -o $(OUT_DIR)/ray.o
+
 
 
 

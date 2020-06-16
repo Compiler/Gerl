@@ -9,7 +9,7 @@ typedef struct Vector3{
 }vec3;
 
 
-float TYPE_length(vec3* vecA);
+float vec3_length(vec3* vecA);
 void vec3_addTo(vec3* vecA, vec3* vecB);
 void vec3_addValTo(vec3* vecA, float val);
 void vec3_subFrom(vec3* vecA, vec3* vecB);
