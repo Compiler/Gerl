@@ -4,6 +4,7 @@
 #include <Core/GerlCore.h>
 #include <Logger/GerlLogger.h>
 #include <Assets/TextLoader.h>
+#include <Math/Vec3.h>
 
 void check(){
 	static int callCount = 1;
@@ -16,11 +17,6 @@ void check(){
 		GERL_ERROR("Error\n");
 		fflush(stdout);
 	}
-}
-
-void checkShader(){
-
-	
 }
 
 unsigned int shaderProgram = 0;
@@ -80,7 +76,15 @@ int main(){
 
 	
 	if(!glfwInit()) printf("Failed to init glfw");
-	
+	vec3 a, b;
+	a.x = 5.0f; a.y = 5.0f; a.z = 5.0f;
+	b.x = 4.0f; b.y = 4.0f; b.z = 4.0f;
+
+	GERL_LOG("a = (%f, %f, %f) \t b = (%f, %f, %f)\n", a.x, a.y, a.z, b.x, b.y, b.z,);
+
+	mulValTo(&a, 4);
+	GERL_LOG("a = (%f, %f, %f) \t b = (%f, %f, %f)\n", a.x, a.y, a.z, b.x, b.y, b.z,);
+
 	//char* vert = getTextContents(GERL_INTERNAL_SHADERS("pass.vert"));
 	//char* frag = getTextContents("src/Resources/Shaders/pass.frag");
 	//printf("Vertex: '%s'\n", vert);
@@ -106,15 +110,15 @@ int main(){
 	initShader(GERL_INTERNAL_SHADERS("pass.vert"), GERL_INTERNAL_SHADERS("RayMarching.frag"));
 	glUseProgram(shaderProgram);
 
-	float a = 0.75f;
+	float sz = 0.75f;
 	float vertices[7 * 6] = {
-		-a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom left
-		-a,  a, 0.0f,	1.0f, 1.0f, 1.0f, 1.0f, // top left
-		 a, -a, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom right
+		-sz, -sz, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom left
+		-sz,  sz, 0.0f,	1.0f, 1.0f, 1.0f, 1.0f, // top left
+		 sz, -sz, 0.0f, 	1.0f, 1.0f, 1.0f, 1.0f, // bottom right
 
-		 a,  a, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f, //top right
-		-a,  a, 0.0f,	0.0f, 1.0f, 1.0f, 1.0f,
-		 a, -a, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f	 };
+		 sz,  sz, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f, //top right
+		-sz,  sz, 0.0f,	0.0f, 1.0f, 1.0f, 1.0f,
+		 sz, -sz, 0.0f, 	0.0f, 1.0f, 1.0f, 1.0f	 };
 	
 	unsigned int bufferID, arrayID;
 	glGenVertexArrays(1, &arrayID);

@@ -10,7 +10,7 @@ void addTo(vec3 *vecA, vec3* vecB){
     vecA->y += vecB->y;
     vecA->z += vecB->z;
 }
-void addTo(vec3 *vecA, float value){
+void addValTo(vec3 *vecA, float value){
     vecA->x += value;
     vecA->y += value;
     vecA->z += value;
@@ -20,7 +20,7 @@ void subFrom(vec3 *vecA, vec3* vecB){
     vecA->y -= vecB->y;
     vecA->z -= vecB->z;
 }
-void subFrom(vec3 *vecA, float value){
+void subValFrom(vec3 *vecA, float value){
     vecA->x -= value;
     vecA->y -= value;
     vecA->z -= value;
@@ -30,7 +30,7 @@ void mulTo(vec3 *vecA, vec3* vecB){
     vecA->y *= vecB->y;
     vecA->z *= vecB->z;
 }
-void mulTo(vec3 *vecA, float value){
+void mulValTo(vec3 *vecA, float value){
     vecA->x *= value;
     vecA->y *= value;
     vecA->z *= value;
@@ -40,7 +40,7 @@ void divTo(vec3 *vecA, vec3* vecB){
     vecA->y /= vecB->y;
     vecA->z /= vecB->z;
 }
-void divTo(vec3 *vecA, float value){
+void divValTo(vec3 *vecA, float value){
     vecA->x /= value;
     vecA->y /= value;
     vecA->z /= value;
