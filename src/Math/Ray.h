@@ -11,5 +11,6 @@ typedef struct Ray{
 }ray;
 
 vec3 ray_getPositionAt(const ray* currentRay, double t);
+vec3 ray_color();
 
 #endif
