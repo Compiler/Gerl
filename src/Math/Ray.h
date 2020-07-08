@@ -8,6 +8,8 @@
 typedef struct Ray{
     vec3 position;
     vec3 direction;
-};
+}ray;
+
+vec3 ray_getPositionAt(const ray* currentRay, double t);
 
 #endif

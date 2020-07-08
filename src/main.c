@@ -5,6 +5,7 @@
 #include <Logger/GerlLogger.h>
 #include <Assets/TextLoader.h>
 #include <Math/Vec3.h>
+#include <Math/Ray.h>
 
 void check(){
 	static int callCount = 1;
@@ -74,7 +75,11 @@ void initShader(const char* vertexFile, const char* fragmentFile){
 
 int main(){
 
-	
+	ray r1;
+	r1.position.x = 0;r1.position.y = 0;r1.position.z = 0;
+	r1.direction.x = 1;r1.direction.y = 0;r1.direction.z = 0;
+	vec3 rayPos = ray_getPositionAt(&r1, 2);
+	GERL_LOG("ray position = (%f, %f, %f) \t ray position at t = 2 = (%f, %f, %f)\n", r1.position.x, r1.position.y, r1.position.z, rayPos.x, rayPos.y, rayPos.z,);
 	if(!glfwInit()) printf("Failed to init glfw");
 	vec3 a, b;
 	a.x = 5.0f; a.y = 5.0f; a.z = 5.0f;
