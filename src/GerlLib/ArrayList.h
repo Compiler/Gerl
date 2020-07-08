@@ -1,6 +1,7 @@
 #ifndef GERL_ARRAYLIST_H
 #define GERL_ARRAYLIST_H
 #pragma once
+#include <stdlib.h>
 
 typedef struct _arraylist{
     size_t size;
@@ -8,8 +9,11 @@ typedef struct _arraylist{
 }ArrayList;
 
 ArrayList* ArrayList_create();
-ArrayList* ArrayList_createSized(int initialSize);
 
+
+void ArrayList_add(ArrayList* array, void* item);
+void* ArrayList_get(ArrayList* array, int index);
+void ArrayList_remove(ArrayList* array, void* item);
 
 
 

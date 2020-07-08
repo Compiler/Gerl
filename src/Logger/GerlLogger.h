@@ -17,10 +17,10 @@
 
 #define RESET "\x1B[0m"
 
-#define GERL_FATAL(...) printf(RED_BLD "!GerlFatal!:\t\t"); printf(__VA_ARGS__ RESET);
-#define GERL_ERROR(...) printf(RED "GerlError:\t"); printf(__VA_ARGS__ RESET);
-#define GERL_WARN(...) printf(YEL "GerlWarn:\t"); printf(__VA_ARGS__ RESET);
-#define GERL_DEBUG(...) printf(GRN "GerlDebug:\t"); printf(__VA_ARGS__ RESET);
-#define GERL_LOG(...) printf(BLU "GerlLog:\t"); printf(__VA_ARGS__ RESET);
+#define GERL_FATAL(...) printf(RED_BLD "!GerlFatal!:\t\t"); printf(__VA_ARGS__, RESET);
+#define GERL_ERROR(...) printf(RED "GerlError:\t"); printf(__VA_ARGS__, RESET);
+#define GERL_WARN(...) printf(YEL "GerlWarn:\t"); printf(__VA_ARGS__, RESET);
+#define GERL_DEBUG(...) printf(GRN "GerlDebug:\t"); printf(__VA_ARGS__, RESET);
+#define GERL_LOG(...) printf(BLU "GerlLog:\t"); printf(__VA_ARGS__, RESET);
 
 #endif

@@ -6,6 +6,7 @@
 #include <Assets/TextLoader.h>
 #include <Math/Vec3.h>
 #include <Math/Ray.h>
+#include <GerlLib/ArrayList.h>
 
 void check(){
 	static int callCount = 1;
@@ -72,15 +73,33 @@ void initShader(const char* vertexFile, const char* fragmentFile){
 	}
 
 }
+int testing(){
+	ArrayList* list = ArrayList_create();
+	ray* ray1 = malloc(sizeof(ray));
+	ray1->position.x = 1;ray1->position.y = 2;ray1->position.z = 3;
+	ray1->direction.x = 4;ray1->direction.y = 5;ray1->direction.z = 6;
 
-int main(){
 
 	ray r1;
 	r1.position.x = 0;r1.position.y = 0;r1.position.z = 0;
 	r1.direction.x = 1;r1.direction.y = 0;r1.direction.z = 0;
-	vec3 rayPos = ray_getPositionAt(&r1, 2);
-	GERL_LOG("ray position = (%f, %f, %f) \t ray position at t = 2 = (%f, %f, %f)\n", r1.position.x, r1.position.y, r1.position.z, rayPos.x, rayPos.y, rayPos.z,);
-	if(!glfwInit()) printf("Failed to init glfw");
+	ray1 = &r1;
+	ArrayList_add(list, ray1);
+	GERL_LOG("ray position = (%f, %f, %f) \n", r1.position.x, r1.position.y, r1.position.z);
+	r1 = *(ray*)ArrayList_get(list, 0);
+	GERL_LOG("ray position = (%f, %f, %f) \n", r1.position.x, r1.position.y, r1.position.z);
+
+
+
+	GERL_WARN("Finished");
+	printf("\033[0m \n"); //reset logger
+
+	return 0;
+
+}
+int main(){
+	return testing();
+	/*if(!glfwInit()) printf("Failed to init glfw");
 	vec3 a, b;
 	a.x = 5.0f; a.y = 5.0f; a.z = 5.0f;
 	b.x = 4.0f; b.y = 4.0f; b.z = 4.0f;
@@ -166,9 +185,9 @@ int main(){
 	printf("\033[0m \n"); //reset logger
 
 	glfwDestroyWindow(window);
-	glfwTerminate();
+	glfwTerminate();*/
 
-    return 4;
+   // return 4;
 }
 
 
