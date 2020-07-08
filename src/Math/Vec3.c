@@ -46,6 +46,10 @@ void vec3_divValTo(vec3 *vecA, float value){
     vecA->z /= value;
 }
 
+void vec3_set(vec3* vecA, float x, float y, float z){
+    vecA->x = x; vecA->y = y; vecA->z = z;
+}
+
 void vec3_unitVector(vec3* vecA){
     vec3 ref;
     ref.x = vecA->x;ref.y = vecA->y;ref.z = vecA->z;

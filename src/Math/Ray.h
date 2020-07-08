@@ -2,7 +2,6 @@
 #define RAY_H
 #pragma once
 
-
 #include <Math/Vec3.h>
 
 typedef struct Ray{
@@ -11,6 +10,9 @@ typedef struct Ray{
 }ray;
 
 vec3 ray_getPositionAt(const ray* currentRay, double t);
-vec3 ray_color();
+void ray_setPosition(ray* currentRay, float x, float y, float z);
+void ray_setDirection(ray* currentRay, float x, float y, float z);
+
+vec3 ray_color(const ray* currentRay);
 
 #endif

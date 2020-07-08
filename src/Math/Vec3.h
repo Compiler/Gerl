@@ -21,6 +21,7 @@ void vec3_mulTo(vec3* vecA, vec3* vecB);
 void vec3_mulValTo(vec3* vecA, float val);
 void vec3_divTo(vec3* vecA, vec3* vecB);
 void vec3_divValTo(vec3* vecA, float val);
+void vec3_set(vec3* vecA, float x, float y, float z);
 
 void vec3_unitVector(vec3* vecA);
 

@@ -5,6 +5,7 @@
 
 typedef struct _arraylist{
     size_t size;
+    size_t currentMultiple;
     void** data;
 }ArrayList;
 
