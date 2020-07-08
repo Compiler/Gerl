@@ -1,4 +1,7 @@
+#ifndef VEC3_H
+#define VEC3_H
 #pragma once
+
 #include <math.h>
 
 
@@ -20,3 +23,5 @@ void vec3_divTo(vec3* vecA, vec3* vecB);
 void vec3_divValTo(vec3* vecA, float val);
 
 void vec3_unitVector(vec3* vecA);
+
+#endif

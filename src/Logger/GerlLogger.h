@@ -1,3 +1,5 @@
+#ifndef GERLLOGGER_H
+#define GERLLOGGER_H
 #pragma once
 #include <stdio.h>
 
@@ -21,3 +23,4 @@
 #define GERL_DEBUG(...) printf(GRN "GerlDebug:\t"); printf(__VA_ARGS__ RESET);
 #define GERL_LOG(...) printf(BLU "GerlLog:\t"); printf(__VA_ARGS__ RESET);
 
+#endif

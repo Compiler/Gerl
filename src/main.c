@@ -85,10 +85,6 @@ int main(){
 	vec3_mulValTo(&a, 4);
 	GERL_LOG("a = (%f, %f, %f) \t b = (%f, %f, %f)\n", a.x, a.y, a.z, b.x, b.y, b.z,);
 
-	//char* vert = getTextContents(GERL_INTERNAL_SHADERS("pass.vert"));
-	//char* frag = getTextContents("src/Resources/Shaders/pass.frag");
-	//printf("Vertex: '%s'\n", vert);
-	//printf("Fragment: '%s'\n", frag);
    	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);//version 4.6 Core profile
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
