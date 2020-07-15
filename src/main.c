@@ -74,7 +74,7 @@ void initShader(const char* vertexFile, const char* fragmentFile){
 
 }
 int testing(){
-	ArrayList* list = ArrayList_create();
+	ArrayList* list = ArrayList_create(sizeof(ray));
 	ray* rayPointer = malloc(sizeof(ray));
 	ray_setPosition(rayPointer, 0, 8, 0);
 	ray_setDirection(rayPointer, 0, 1, -1);
@@ -85,12 +85,12 @@ int testing(){
 
 	GERL_LOG("rayStack.position = (%f, %f, %f) \t rayStack.direction = (%f, %f, %f) \n", rayStack.position.x, rayStack.position.y, rayStack.position.z, rayStack.direction.x, rayStack.direction.y, rayStack.direction.z);
 	GERL_LOG("rayPointer.position = (%f, %f, %f) \t rayPointer.direction = (%f, %f, %f) \n", rayPointer->position.x, rayPointer->position.y, rayPointer->position.z, rayPointer->direction.x, rayPointer->direction.y, rayPointer->direction.z);
-
+	ArrayList_add(list, (void*)rayPointer);
+	GERL_LOG("Added\n");
 	rayStack = *(ray*)ArrayList_get(list, 0);
 
 	GERL_LOG("rayStack.position = (%f, %f, %f) \t rayStack.direction = (%f, %f, %f) \n", rayStack.position.x, rayStack.position.y, rayStack.position.z, rayStack.direction.x, rayStack.direction.y, rayStack.direction.z);
 	GERL_LOG("rayPointer.position = (%f, %f, %f) \t rayPointer.direction = (%f, %f, %f) \n", rayPointer->position.x, rayPointer->position.y, rayPointer->position.z, rayPointer->direction.x, rayPointer->direction.y, rayPointer->direction.z);
-	ArrayList_add(list, rayPointer);
 	
 	GERL_WARN("Finished");
 	printf("\033[0m \n"); //reset logger

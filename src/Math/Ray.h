@@ -4,6 +4,7 @@
 
 #include <Math/Vec3.h>
 
+//24 bytes
 typedef struct Ray{
     vec3 position;
     vec3 direction;

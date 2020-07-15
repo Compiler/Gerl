@@ -15,7 +15,7 @@
 #define WHT         "\x1B[37m"
 
 
-#define RESET "\x1B[0m"
+#define RESET "\n\x1B[0m"
 
 #define GERL_FATAL(...) printf(RED_BLD "!GerlFatal!:\t\t"); printf(__VA_ARGS__, RESET);
 #define GERL_ERROR(...) printf(RED "GerlError:\t"); printf(__VA_ARGS__, RESET);

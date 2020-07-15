@@ -2,14 +2,16 @@
 #define GERL_ARRAYLIST_H
 #pragma once
 #include <stdlib.h>
+#include <Logger/GerlLogger.h>
 
 typedef struct _arraylist{
     size_t size;
     size_t currentMultiple;
-    void** data;
+    size_t elementSize;
+    char* data;
 }ArrayList;
 
-ArrayList* ArrayList_create();
+ArrayList* ArrayList_create(size_t elementSize);
 
 
 void ArrayList_add(ArrayList* array, void* item);
