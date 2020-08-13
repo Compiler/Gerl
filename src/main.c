@@ -87,13 +87,50 @@ int testing(){
 	GERL_LOG("rayPointer.position = (%f, %f, %f) \t rayPointer.direction = (%f, %f, %f) \n", rayPointer->position.x, rayPointer->position.y, rayPointer->position.z, rayPointer->direction.x, rayPointer->direction.y, rayPointer->direction.z);
 	ArrayList_add(list, (void*)rayPointer);
 	GERL_LOG("Added\n");
+	((ray*)ArrayList_get(list, 0))->position.x = 3;
 	rayStack = *(ray*)ArrayList_get(list, 0);
-
 	GERL_LOG("rayStack.position = (%f, %f, %f) \t rayStack.direction = (%f, %f, %f) \n", rayStack.position.x, rayStack.position.y, rayStack.position.z, rayStack.direction.x, rayStack.direction.y, rayStack.direction.z);
 	GERL_LOG("rayPointer.position = (%f, %f, %f) \t rayPointer.direction = (%f, %f, %f) \n", rayPointer->position.x, rayPointer->position.y, rayPointer->position.z, rayPointer->direction.x, rayPointer->direction.y, rayPointer->direction.z);
 	
+
+
+
+
+
+	 // Image
+
+    const int image_width = 256;
+    const int image_height = 256;
+
+    // Render
+
+    printf("P3\n%d %d\n255\n", image_width, image_height);
+
+    for (int j = image_height-1; j >= 0; --j) {
+        for (int i = 0; i < image_width; ++i) {
+			double ii = i;
+			double jj = j;
+            double r = ii / (image_width-1);
+            double g = jj / (image_height-1);
+            double b = 0.25;
+
+            int ir = (int)(255.999 * r);
+            int ig = (int)(255.999 * g);
+            int ib = (int)(255.999 * b);
+
+            printf("%d %d %d\n", ir, ig, ib);
+        }
+    }
+
+
+
+
 	GERL_WARN("Finished");
 	printf("\033[0m \n"); //reset logger
+
+
+
+	
 
 	return 0;
 

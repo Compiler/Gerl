@@ -3,7 +3,8 @@
 #pragma once
 #include <stdlib.h>
 #include <Logger/GerlLogger.h>
-
+#include <assert.h>
+// Array list that takes ownership of item
 typedef struct _arraylist{
     size_t size;
     size_t currentMultiple;
@@ -18,7 +19,8 @@ void ArrayList_add(ArrayList* array, void* item);
 void* ArrayList_get(ArrayList* array, int index);
 void ArrayList_remove(ArrayList* array, void* item);
 
-
+size_t ArrayList_getSize(const ArrayList* array);
+char ArrayList_isEmpty(const ArrayList* array);
 
 
 

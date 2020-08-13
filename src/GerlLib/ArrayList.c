@@ -13,7 +13,7 @@ ArrayList* ArrayList_create(size_t elementSize){
 
 
 void ArrayList_add(ArrayList* array, void* item){
-
+    assert(array != NULL);
     const void* source = (const void*)item;
 
     void* destination = &array->data[0] + (array->size * array->elementSize);
@@ -22,8 +22,17 @@ void ArrayList_add(ArrayList* array, void* item){
     
 }
 void* ArrayList_get(ArrayList* array, int index){
-     return &array->data[index];
+    assert(array != NULL);
+    return &array->data[index];
 }
 
+size_t ArrayList_getSize(const ArrayList* array){
+    assert(array != NULL);
+    return array->size;
+}
+char ArrayList_isEmpty(const ArrayList* array){
+    assert(array != NULL);
+    return array->size == 0;
+}
 
 void ArrayList_remove(ArrayList* array, void* item);
