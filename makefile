@@ -20,10 +20,13 @@ INC=-I $(SRC_DIR)/ -I $(GLAD_INC) -I $(GLFW_INC)
 LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3 -lglu32 -lopengl32 -lgdi32
 
+OBJS = textloader.o vec3.o ray.o ArrayList.o PPMWriter.o
+OUT_OBJECTS = $(patsubst %.o, $(OUT_DIR)/%.o, $(OBJS))
+
 all: main
 
-main: $(ENTRY_POINT) textloader.o vec3.o ray.o ArrayList.o
-	$(CXX) $(CXXFLAGS) $(LIBS) $(INC) -o $(OUT_DIR)/$(LAUNCHER_NAME) $(OUT_DIR)/TextLoader.o $(OUT_DIR)/vec3.o $(OUT_DIR)/ray.o $(OUT_DIR)/ArrayList.o $(ENTRY_POINT) $(GLAD_SRC)/glad.c $(LINKS)
+main: $(ENTRY_POINT) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(LIBS) $(INC) -o $(OUT_DIR)/$(LAUNCHER_NAME) $(OUT_OBJECTS)  $(ENTRY_POINT) $(GLAD_SRC)/glad.c $(LINKS)
 
 run: $(OUT_DIR)/$(LAUNCHER_NAME).exe
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
@@ -40,6 +43,9 @@ ray.o: $(SRC_DIR)/Math/Ray.c vec3.o
 
 ArrayList.o: $(SRC_DIR)/GerlLib/ArrayList.c
 	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/GerlLib/ArrayList.c -o $(OUT_DIR)/ArrayList.o 
+
+PPMWriter.o: $(SRC_DIR)/Assets/PPMWriter.c
+	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/Assets/PPMWriter.c -o $(OUT_DIR)/PPMWriter.o 
 
 
 

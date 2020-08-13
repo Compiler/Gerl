@@ -4,6 +4,7 @@
 #include <Core/GerlCore.h>
 #include <Logger/GerlLogger.h>
 #include <Assets/TextLoader.h>
+#include <Assets/PPMWriter.h>
 #include <Math/Vec3.h>
 #include <Math/Ray.h>
 #include <GerlLib/ArrayList.h>
@@ -73,6 +74,11 @@ void initShader(const char* vertexFile, const char* fragmentFile){
 	}
 
 }
+
+
+void write_color(FILE* fp, vec3 col){
+	fprintf(fp, "%d %d %d\n", col.x, col.y, col.z);
+}
 int testing(){
 	ArrayList* list = ArrayList_create(sizeof(ray));
 	ray* rayPointer = malloc(sizeof(ray));
@@ -113,6 +119,7 @@ int testing(){
 	fprintf(fp, "P3\n%d %d\n255\n", image_width, image_height);
     for (int j = image_height-1; j >= 0; --j) {
         for (int i = 0; i < image_width; ++i) {
+			static vec3 col;
 			double ii = i;
 			double jj = j;
             double r = ii / (image_width-1);
@@ -122,8 +129,11 @@ int testing(){
             int ir = (int)(255.999 * r);
             int ig = (int)(255.999 * g);
             int ib = (int)(255.999 * b);
+			col.x = ir; col.y = ig; col.z = ib;
             printf("%d %d %d\n", ir, ig, ib);
-			fprintf(fp, "%d %d %d\n", ir, ig, ib);
+			ppm_writeColor(fp, col);
+			//write_color(fp, col);
+			//fprintf(fp, "%d %d %d\n", ir, ig, ib);
         }
     }
 

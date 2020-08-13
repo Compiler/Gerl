@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <Math/Vec3.h>
 #ifndef GERL_INTERNAL
 #define GERL_INTERNAL(x) "src/Resources" x
 #endif
@@ -15,8 +16,9 @@ typedef struct PPMBuffer{
 
 
 
-void ppm_writeBufferToFile(const PPMBuffer* buffer, const char* filePath);
+void ppm_writeBufferToFile(const ppmBuffer* buffer, const char* filePath);
 
+void ppm_writeColor(FILE* fp, vec3 col);
 
 
 
