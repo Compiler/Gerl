@@ -105,7 +105,12 @@ int testing(){
     // Render
 
     printf("P3\n%d %d\n255\n", image_width, image_height);
+	const char buf[4096];
+	uint16_t place = 0;
+	FILE *fp;
 
+    fp = fopen("test.ppm", "w+");
+	fprintf(fp, "P3\n%d %d\n255\n", image_width, image_height);
     for (int j = image_height-1; j >= 0; --j) {
         for (int i = 0; i < image_width; ++i) {
 			double ii = i;
@@ -117,8 +122,8 @@ int testing(){
             int ir = (int)(255.999 * r);
             int ig = (int)(255.999 * g);
             int ib = (int)(255.999 * b);
-
             printf("%d %d %d\n", ir, ig, ib);
+			fprintf(fp, "%d %d %d\n", ir, ig, ib);
         }
     }
 
