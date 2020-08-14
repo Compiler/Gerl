@@ -50,8 +50,9 @@ void vec3_set(vec3* vecA, float x, float y, float z){
     vecA->x = x; vecA->y = y; vecA->z = z;
 }
 
-void vec3_unitVector(vec3* vecA){
+vec3 vec3_unitVector(vec3* vecA){
     vec3 ref;
-    ref.x = vecA->x;ref.y = vecA->y;ref.z = vecA->z;
-
+    float l = vec3_length(&ref);
+    ref.x = vecA->x / l;ref.y = vecA->y / l;ref.z = vecA->z / l;
+    return ref;
 }

@@ -76,6 +76,16 @@ void initShader(const char* vertexFile, const char* fragmentFile){
 }
 
 
+vec3 ray_color(const ray* r) {
+    vec3 unit_direction = vec3_unitVector(&r->direction);
+    double t = 0.5*(unit_direction.y + 1.0);
+	vec3 out;
+	out.x = 1.0-t * 1.0 + t* 0.5;
+	out.y = 1.0-t * 1.0 + t* 0.7;
+	out.z = 1.0-t * 1.0 + t* 1.0;
+    return out;
+}
+
 void write_color(FILE* fp, vec3 col){
 	fprintf(fp, "%d %d %d\n", col.x, col.y, col.z);
 }
@@ -105,10 +115,24 @@ int testing(){
 
 	 // Image
 
-    const int image_width = 256;
-    const int image_height = 256;
+    const auto aspect_ratio = 16.0 / 9.0;
+    const int image_width = 400;
+    const int image_height = (int)(image_width / aspect_ratio);
 
-    // Render
+    // Camera
+
+    double viewport_height = 2.0;
+    double viewport_width = aspect_ratio * viewport_height;
+    double focal_length = 1.0;
+
+    vec3 origin;vec3_set(&origin, 0, 0, 0);
+    vec3 horizontal; vec3_set(&horizontal, viewport_width, 0, 0);
+    vec3 vertical;vec3_set(&horizontal, 0, viewport_height, 0);
+    vec3 lower_left_corner;
+	vec3_set(&lower_left_corner, origin.x - (horizontal.x / 2) - (vertical.x / 2), origin.y - (horizontal.y / 2) - (vertical.y / 2), origin.z - (horizontal.z / 2) - (vertical.z / 2));
+	vec3 tmp; vec3_set(&tmp, 0,0,focal_length);
+    vec3_subFrom(&lower_left_corner, &tmp);
+	// Render
 
     printf("P3\n%d %d\n255\n", image_width, image_height);
 	const char buf[4096];
@@ -119,21 +143,11 @@ int testing(){
 	fprintf(fp, "P3\n%d %d\n255\n", image_width, image_height);
     for (int j = image_height-1; j >= 0; --j) {
         for (int i = 0; i < image_width; ++i) {
-			static vec3 col;
-			double ii = i;
-			double jj = j;
-            double r = ii / (image_width-1);
-            double g = jj / (image_height-1);
-            double b = 0.25;
-
-            int ir = (int)(255.999 * r);
-            int ig = (int)(255.999 * g);
-            int ib = (int)(255.999 * b);
-			col.x = ir; col.y = ig; col.z = ib;
-            printf("%d %d %d\n", ir, ig, ib);
-			ppm_writeColor(fp, col);
-			//write_color(fp, col);
-			//fprintf(fp, "%d %d %d\n", ir, ig, ib);
+			double u = (double)(i) / (image_width-1);
+            double v = (double)(j) / (image_height-1);
+            ray r(origin, lower_left_corner + u*horizontal + v*vertical - origin);
+            color pixel_color = ray_color(r);
+            write_color(std::cout, pixel_color);
         }
     }
 

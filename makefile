@@ -23,6 +23,8 @@ LINKS = -lglfw3 -lglu32 -lopengl32 -lgdi32
 OBJS = textloader.o vec3.o ray.o ArrayList.o PPMWriter.o
 OUT_OBJECTS = $(patsubst %.o, $(OUT_DIR)/%.o, $(OBJS))
 
+
+
 all: main
 
 main: $(ENTRY_POINT) $(OBJS)
@@ -32,14 +34,15 @@ run: $(OUT_DIR)/$(LAUNCHER_NAME).exe
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 
+
 textloader.o: $(SRC_DIR)/Assets/TextLoader.c
 	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/Assets/TextLoader.c -o $(OUT_DIR)/TextLoader.o
 
 vec3.o: $(SRC_DIR)/Math/Vec3.c
 	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/Math/Vec3.c -o $(OUT_DIR)/vec3.o
 
-ray.o: $(SRC_DIR)/Math/Ray.c vec3.o
-	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/Math/Ray.c -o $(OUT_DIR)/ray.o $(OUT_DIR)/vec3.o
+ray.o: $(SRC_DIR)/Math/Ray.c 
+	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/Math/Ray.c -o $(OUT_DIR)/ray.o 
 
 ArrayList.o: $(SRC_DIR)/GerlLib/ArrayList.c
 	$(CXX) $(CXXFLAGS) $(INC_INTERNAL) -c $(SRC_DIR)/GerlLib/ArrayList.c -o $(OUT_DIR)/ArrayList.o 
